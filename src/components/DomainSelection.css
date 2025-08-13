@@ -1,0 +1,234 @@
+.domain-selection {
+  min-height: 100vh;
+  background: var(--background-light);
+}
+
+/* Header */
+.domain-header {
+  padding: 32px 0;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--light-green);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Main Content */
+.domain-main {
+  padding: 80px 0;
+}
+
+.domain-intro {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.domain-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.domain-subtitle {
+  font-size: 20px;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Domains Grid */
+.domains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.domain-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border-top: 4px solid var(--accent-green);
+}
+
+.domain-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.domain-card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.domain-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--light-green);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-green);
+  flex-shrink: 0;
+}
+
+.domain-title-section {
+  flex: 1;
+}
+
+.domain-card-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.domain-card-chinese {
+  font-size: 16px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.domain-description {
+  font-size: 16px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+/* Key Topics Section */
+.key-topics-section {
+  margin-bottom: 32px;
+}
+
+.key-topics-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.key-topics-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.topic-tag {
+  background: var(--light-green);
+  color: var(--primary-green);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: default;
+}
+
+/* Start Learning Button */
+.start-learning-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--primary-green);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.start-learning-btn:hover {
+  color: var(--accent-green);
+  transform: translateX(4px);
+}
+
+.start-learning-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.start-learning-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .domain-title {
+    font-size: 36px;
+  }
+  
+  .domain-subtitle {
+    font-size: 18px;
+  }
+  
+  .domains-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .domain-card {
+    padding: 24px;
+  }
+  
+  .domain-card-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .domain-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .domain-card-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .domain-main {
+    padding: 60px 0;
+  }
+  
+  .domain-title {
+    font-size: 28px;
+  }
+  
+  .domain-card {
+    padding: 20px;
+  }
+  
+  .key-topics-tags {
+    gap: 8px;
+  }
+  
+  .topic-tag {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+} 

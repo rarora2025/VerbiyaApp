@@ -1,0 +1,29 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background-light) 0%, var(--light-green) 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+} 
