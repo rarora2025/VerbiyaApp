@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/VerbiyaApp/static/css/main.104f993e.css",
+    "main.js": "/VerbiyaApp/static/js/main.f0b76f1d.js",
+    "static/media/logo.png": "/VerbiyaApp/static/media/logo.1ac97469843755947acf.png",
+    "index.html": "/VerbiyaApp/index.html",
+    "main.104f993e.css.map": "/VerbiyaApp/static/css/main.104f993e.css.map",
+    "main.f0b76f1d.js.map": "/VerbiyaApp/static/js/main.f0b76f1d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.104f993e.css",
+    "static/js/main.f0b76f1d.js"
+  ]
+}
