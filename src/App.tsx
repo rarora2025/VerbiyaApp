@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
-import DomainSelection from './components/DomainSelection';
+import CoursePage from './components/CoursePage/CoursePage';
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="App">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/domains" element={<DomainSelection />} />
+          <Route path="/course/asian-marketing" element={<CoursePage />} />
         </Routes>
       </div>
     </Router>
