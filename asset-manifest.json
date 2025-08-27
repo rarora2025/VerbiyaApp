@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/VerbiyaApp/static/css/main.386514a4.css",
+    "main.css": "/VerbiyaApp/static/css/main.331f6a01.css",
     "main.js": "/VerbiyaApp/static/js/main.54e96e2a.js",
     "static/media/logo.png": "/VerbiyaApp/static/media/logo.1ac97469843755947acf.png",
     "index.html": "/VerbiyaApp/index.html",
-    "main.386514a4.css.map": "/VerbiyaApp/static/css/main.386514a4.css.map",
+    "main.331f6a01.css.map": "/VerbiyaApp/static/css/main.331f6a01.css.map",
     "main.54e96e2a.js.map": "/VerbiyaApp/static/js/main.54e96e2a.js.map"
   },
   "entrypoints": [
-    "static/css/main.386514a4.css",
+    "static/css/main.331f6a01.css",
     "static/js/main.54e96e2a.js"
   ]
 }
