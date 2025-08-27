@@ -958,6 +958,10 @@
   .hero-stats {
     justify-content: center;
   }
+  
+  .course-features {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -993,6 +997,15 @@
   .coming-soon-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+  
+  .course-features {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .feature-item {
+    white-space: normal;
   }
 
   .custom-course-section {
@@ -1135,13 +1148,18 @@
 
 .course-features {
   margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
 }
 
 .feature-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 0;
+  white-space: nowrap;
 }
 
 .feature-item svg {
