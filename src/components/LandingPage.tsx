@@ -120,11 +120,11 @@ const LandingPage: React.FC = () => {
             </p>
             
             <div className="hero-actions">
-              <button className="btn btn-primary">
+              <Link to="/course/asian-marketing" className="btn btn-primary">
                 <Play size={20} />
                 <span>Try Our First Course</span>
-              </button>
-              <button className="btn btn-secondary">
+              </Link>
+              <button className="btn btn-secondary" onClick={() => document.getElementById('custom')?.scrollIntoView({ behavior: 'smooth' })}>
                 <Brain size={20} />
                 <span>Request Custom Course</span>
               </button>
@@ -299,8 +299,27 @@ const LandingPage: React.FC = () => {
                   className="course-description-input"
                   placeholder="Describe your professional domain and specific learning objectives: your industry, role, target proficiency level, specific challenges you face in professional English communication..."
                   rows={4}
+                  onChange={(e) => {
+                    const charCount = e.target.value.length;
+                    const charCountElement = document.querySelector('.char-count');
+                    if (charCountElement) {
+                      charCountElement.textContent = `${charCount}/1000`;
+                    }
+                  }}
                 />
-                <button className="send-button">
+                <button className="send-button" onClick={() => {
+                  const textarea = document.querySelector('.course-description-input') as HTMLTextAreaElement;
+                  if (textarea && textarea.value.trim()) {
+                    alert('Thank you! Your custom course request has been submitted. Our agentic learning system will analyze your requirements and create a personalized course within 48 hours.');
+                    textarea.value = '';
+                    const charCountElement = document.querySelector('.char-count');
+                    if (charCountElement) {
+                      charCountElement.textContent = '0/1000';
+                    }
+                  } else {
+                    alert('Please describe your professional domain and learning objectives before submitting.');
+                  }
+                }}>
                   <ArrowRight size={20} />
                 </button>
               </div>

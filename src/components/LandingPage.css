@@ -332,6 +332,30 @@
   justify-content: center;
 }
 
+.hero-actions .btn.btn-primary {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-dark) 100%);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.hero-actions .btn.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .scrollable-menu {
     padding: 12px 0;
