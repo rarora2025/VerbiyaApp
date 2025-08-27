@@ -1,8 +1,7 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import CoursePage from './components/CoursePage/CoursePage';
-import Auth from './components/Auth';
 import './App.css';
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/course/online-marketing-asian-marketers" element={<CoursePage />} />
-          <Route path="/auth" element={<Auth />} />
         </Routes>
       </div>
     </Router>

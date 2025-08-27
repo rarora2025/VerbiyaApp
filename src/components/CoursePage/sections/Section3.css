@@ -1,4 +1,4 @@
-/* Pipeline Overview */
+/* Pipeline Introduction */
 .pipeline-intro {
   background: #fef3c7;
   padding: 20px;
@@ -19,7 +19,7 @@
   gap: 16px;
 }
 
-.pipeline-stage {
+.pipeline-step {
   background: white;
   padding: 24px;
   border-radius: 12px;
@@ -31,13 +31,13 @@
   position: relative;
 }
 
-.pipeline-stage:hover {
+.pipeline-step:hover {
   border-color: #f59e0b;
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
 }
 
-.stage-icon {
+.step-icon {
   background: linear-gradient(135deg, #f59e0b, #fbbf24);
   color: white;
   padding: 16px;
@@ -50,13 +50,13 @@
   justify-content: center;
 }
 
-.pipeline-stage h4 {
+.pipeline-step h4 {
   color: #92400e;
   margin-bottom: 12px;
   font-size: 18px;
 }
 
-.pipeline-stage p {
+.pipeline-step p {
   color: #6b7280;
   margin: 0;
   font-size: 14px;
@@ -69,44 +69,40 @@
   animation: pulse 2s infinite;
 }
 
-.pipeline-insights {
+.pipeline-tips {
   background: #fef3c7;
   padding: 24px;
   border-radius: 12px;
   border: 1px solid #fbbf24;
 }
 
-.pipeline-insights h4 {
+.pipeline-tips h4 {
   color: #92400e;
   margin-bottom: 24px;
   font-size: 20px;
   text-align: center;
 }
 
-.insights-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.insight-item {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #fbbf24;
-}
-
-.insight-item h5 {
-  color: #92400e;
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.insight-item p {
-  color: #6b7280;
+.pipeline-tips ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
+}
+
+.pipeline-tips li {
+  padding: 8px 0;
+  color: #92400e;
+  position: relative;
+  padding-left: 24px;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.pipeline-tips li::before {
+  content: '💡';
+  position: absolute;
+  left: 0;
+  font-size: 16px;
 }
 
 /* Live Demo */
@@ -121,7 +117,7 @@
   line-height: 1.6;
 }
 
-.demo-flow {
+.demo-example {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,70 +170,50 @@
   margin-bottom: 8px;
 }
 
-.step-label {
-  color: #6b7280;
-  font-size: 14px;
-  margin: 0;
-  font-style: italic;
-}
-
-.demo-arrow {
-  color: #10b981;
-  animation: bounce 2s infinite;
-}
-
-.transformation-analysis {
+.demo-explanation {
   background: #f0fdf4;
   padding: 24px;
   border-radius: 12px;
   border: 1px solid #bbf7d0;
 }
 
-.transformation-analysis h4 {
+.demo-explanation h4 {
   color: #065f46;
   margin-bottom: 24px;
   font-size: 20px;
   text-align: center;
 }
 
-.analysis-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.demo-explanation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.analysis-item {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #bbf7d0;
-}
-
-.analysis-item h5 {
+.demo-explanation li {
+  padding: 8px 0;
   color: #065f46;
-  margin-bottom: 16px;
-  font-size: 16px;
-}
-
-.analysis-item p {
-  color: #374151;
-  margin-bottom: 12px;
+  position: relative;
+  padding-left: 24px;
   font-size: 14px;
   line-height: 1.5;
 }
 
-.explanation {
-  background: #f0fdf4;
-  padding: 12px;
-  border-radius: 6px;
-  color: #065f46;
-  font-size: 13px;
-  font-style: italic;
-  margin: 0;
+.demo-explanation li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  color: #10b981;
+  font-weight: bold;
 }
 
-/* Industry Practice */
-.practice-intro {
+.demo-explanation strong {
+  color: #065f46;
+}
+
+/* Industry Exercises */
+.exercise-instruction {
   background: #f3e8ff;
   padding: 20px;
   border-radius: 12px;
@@ -269,37 +245,47 @@
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
 }
 
-.exercise-header {
-  margin-bottom: 24px;
-}
-
-.exercise-header h4 {
+.industry-exercise h4 {
   color: #581c87;
   margin-bottom: 16px;
   font-size: 18px;
 }
 
-.original-content {
+.original-tagline {
   background: #f3e8ff;
-  padding: 20px;
+  padding: 16px;
   border-radius: 8px;
+  margin-bottom: 16px;
   text-align: center;
 }
 
-.rewrite-section h5 {
+.literal-translation {
+  background: #f1f5f9;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+}
+
+.example-adaptation {
+  background: #ecfdf5;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #065f46;
+  font-weight: 500;
+}
+
+.user-versions h5 {
   color: #581c87;
   margin-bottom: 16px;
   font-size: 16px;
 }
 
-.rewrite-inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-}
-
-.rewrite-inputs input {
+.user-versions textarea {
   width: 100%;
   padding: 16px 20px;
   border: 2px solid #e2e8f0;
@@ -307,35 +293,37 @@
   font-size: 16px;
   transition: all 0.3s ease;
   font-family: inherit;
+  min-height: 100px;
+  resize: vertical;
 }
 
-.rewrite-inputs input:focus {
+.user-versions textarea:focus {
   outline: none;
   border-color: #8b5cf6;
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
   transform: translateY(-2px);
 }
 
-.practice-tips {
+.exercise-tips {
   background: #f3e8ff;
   padding: 24px;
   border-radius: 12px;
   border: 1px solid #c4b5fd;
 }
 
-.practice-tips h4 {
+.exercise-tips h4 {
   color: #581c87;
   margin-bottom: 20px;
   font-size: 18px;
 }
 
-.practice-tips ul {
+.exercise-tips ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.practice-tips li {
+.exercise-tips li {
   padding: 8px 0;
   color: #581c87;
   position: relative;
@@ -344,7 +332,7 @@
   line-height: 1.5;
 }
 
-.practice-tips li::before {
+.exercise-tips li::before {
   content: '💡';
   position: absolute;
   left: 0;
@@ -380,23 +368,13 @@
     gap: 24px;
   }
   
-  .pipeline-stage {
+  .pipeline-step {
     min-width: auto;
     width: 100%;
   }
   
   .pipeline-arrow {
     transform: rotate(90deg);
-  }
-  
-  .insights-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .analysis-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
   }
   
   .demo-step {
@@ -411,14 +389,18 @@
   .adapted-text {
     font-size: 18px;
   }
+  
+  .industry-exercise {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-  .pipeline-stage {
+  .pipeline-step {
     padding: 20px;
   }
   
-  .stage-icon {
+  .step-icon {
     width: 48px;
     height: 48px;
     padding: 12px;
@@ -438,10 +420,15 @@
   }
   
   .industry-exercise {
+    padding: 16px;
+  }
+  
+  .exercise-tips {
     padding: 20px;
   }
   
-  .practice-tips {
-    padding: 20px;
+  .user-versions textarea {
+    min-height: 80px;
+    padding: 12px 16px;
   }
 }

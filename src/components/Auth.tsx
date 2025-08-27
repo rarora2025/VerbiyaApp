@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Mail, User, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import './Auth.css';
 
 const Auth: React.FC = () => {
@@ -44,7 +45,7 @@ const Auth: React.FC = () => {
           
           // Redirect to course after 2 seconds
           setTimeout(() => {
-            navigate('/course/asian-marketing');
+            navigate('/course/online-marketing-asian-marketers');
           }, 2000);
         } else {
           setError('Invalid email or password. Try demo@verbiya.com / demo123');
@@ -100,9 +101,14 @@ const Auth: React.FC = () => {
           </Link>
           
           <div className="auth-logo">
-            <div className="logo-icon">V</div>
-            <h1>Verbiya</h1>
-            <p>Professional English Learning Platform</p>
+            <div className="logo-container">
+              <img src={logo} alt="Verbiya Logo" className="logo-image" />
+              <div className="logo-glow"></div>
+            </div>
+            <div className="logo-text">
+              <span className="logo-title">Verbiya</span>
+              <span className="logo-subtitle">Professional English Learning Platform</span>
+            </div>
           </div>
         </div>
 

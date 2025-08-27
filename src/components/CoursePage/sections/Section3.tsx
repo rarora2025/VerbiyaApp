@@ -1,73 +1,56 @@
 import React, { useState } from 'react';
-import { ArrowRight, ArrowDown, CheckCircle, Zap, RefreshCw, Lightbulb } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowRightLeft, Play, FileText } from 'lucide-react';
 import './Section3.css';
 
 interface Section3Props {
   onComplete: () => void;
+  isTranslated: boolean;
 }
 
-const Section3: React.FC<Section3Props> = ({ onComplete }) => {
+const Section3: React.FC<Section3Props> = ({ onComplete, isTranslated }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [userRewrites, setUserRewrites] = useState({
-    tech: ['', '', ''],
-    fashion: ['', '', ''],
-    food: ['', '', ''],
-    beauty: ['', '', ''],
-    automotive: ['', '', '']
+  const [exerciseAnswers, setExerciseAnswers] = useState({
+    industry1: '',
+    industry2: '',
+    industry3: '',
+    industry4: '',
+    industry5: ''
   });
   const [showResults, setShowResults] = useState(false);
 
   const steps = [
     {
-      title: "Pipeline Overview",
+      title: isTranslated ? "管道图表介绍" : "Pipeline Chart Introduction",
       content: "pipeline"
     },
     {
-      title: "Live Demo",
+      title: isTranslated ? "现场演示" : "Live Demo",
       content: "demo"
     },
     {
-      title: "Industry Practice",
-      content: "practice"
+      title: isTranslated ? "行业练习" : "Industry Exercises",
+      content: "exercises"
     }
   ];
 
-  const liveDemo = {
-    mandarin: "健康美味，家的味道",
-    literal: "Healthy and delicious, the taste of home",
-    adapted: "Wholesome flavor that feels like home"
-  };
-
-  const industryExamples = [
+  const mandarinExamples = [
     {
-      industry: "Tech",
-      mandarin: "智能科技，让生活更简单",
-      literal: "Smart technology makes life simpler",
-      category: "tech"
+      original: "健康美味，家的味道",
+      literal: "Healthy and delicious, the taste of home",
+      adapted: "Wholesome flavor that feels like home",
+      industry: isTranslated ? "食品饮料" : "Food & Beverage"
     },
     {
-      industry: "Fashion",
-      mandarin: "时尚设计，展现个性魅力",
-      literal: "Fashion design, show personality charm",
-      category: "fashion"
+      original: "科技改变生活，智慧引领未来",
+      literal: "Technology changes life, wisdom leads the future",
+      adapted: "Smart tech that transforms your everyday",
+      industry: isTranslated ? "科技" : "Technology"
     },
     {
-      industry: "Food & Beverage",
-      mandarin: "新鲜食材，传统工艺",
-      literal: "Fresh ingredients, traditional craftsmanship",
-      category: "food"
-    },
-    {
-      industry: "Beauty",
-      mandarin: "天然成分，深层滋养",
-      literal: "Natural ingredients, deep nourishment",
-      category: "beauty"
-    },
-    {
-      industry: "Automotive",
-      mandarin: "安全驾驶，舒适体验",
-      literal: "Safe driving, comfortable experience",
-      category: "automotive"
+      original: "美丽从内而外，自信由心而生",
+      literal: "Beauty from inside out, confidence born from heart",
+      adapted: "Inner beauty that radiates confidence",
+      industry: isTranslated ? "美容健康" : "Beauty & Wellness"
     }
   ];
 
@@ -83,199 +66,152 @@ const Section3: React.FC<Section3Props> = ({ onComplete }) => {
     onComplete();
   };
 
-  const updateRewrite = (industry: string, index: number, value: string) => {
-    setUserRewrites({
-      ...userRewrites,
-      [industry]: userRewrites[industry as keyof typeof userRewrites].map((item, i) => 
-        i === index ? value : item
-      )
-    });
-  };
-
   const renderPipeline = () => (
     <div className="content-card pipeline">
-      <h3>Mandarin Input → English Output Pipeline</h3>
+      <h3>{isTranslated ? "中文输入 → 英文输出管道" : "Mandarin Input → English Output Pipeline"}</h3>
       <p className="pipeline-intro">
-        Learn how rearranging, expanding, or swapping imagery in Mandarin leads to more natural US copy and a westernized approach.
+        {isTranslated 
+          ? "了解如何重新排列、扩展或交换中文中的意象，从而产生更自然的美式英语文案，进而采用更西化的方法。"
+          : "Show how rearranging, expanding, or swapping imagery in Mandarin leads to more natural U.S. copy, and hence more of a westernized approach."
+        }
       </p>
       
       <div className="pipeline-flow">
-        <div className="pipeline-stage">
-          <div className="stage-icon">
-            <Zap size={24} />
+        <div className="pipeline-step">
+          <div className="step-icon">
+            <FileText size={24} />
           </div>
-          <h4>Mandarin Input</h4>
-          <p>Original cultural context and phrasing</p>
+          <div className="step-content">
+            <h4>{isTranslated ? "步骤1：中文输入" : "Step 1: Mandarin Input"}</h4>
+            <p>{isTranslated ? "原始中文营销标语" : "Original Mandarin marketing tagline"}</p>
+          </div>
         </div>
         
         <div className="pipeline-arrow">
-          <ArrowRight size={24} />
+          <ArrowRightLeft size={20} />
         </div>
         
-        <div className="pipeline-stage">
-          <div className="stage-icon">
-            <RefreshCw size={24} />
+        <div className="pipeline-step">
+          <div className="step-icon">
+            <ArrowRightLeft size={24} />
           </div>
-          <h4>Deconstruction</h4>
-          <p>Break down into core benefits and emotions</p>
+          <div className="step-content">
+            <h4>{isTranslated ? "步骤2：转换过程" : "Step 2: Transformation Process"}</h4>
+            <p>{isTranslated ? "重新排列、扩展意象、文化适应" : "Rearranging, expanding imagery, cultural adaptation"}</p>
+          </div>
         </div>
         
         <div className="pipeline-arrow">
-          <ArrowRight size={24} />
+          <ArrowRight size={20} />
         </div>
         
-        <div className="pipeline-stage">
-          <div className="stage-icon">
-            <Lightbulb size={24} />
+        <div className="pipeline-step">
+          <div className="step-icon">
+            <FileText size={24} />
           </div>
-          <h4>Westernization</h4>
-          <p>Rebuild with US cultural preferences</p>
-        </div>
-        
-        <div className="pipeline-arrow">
-          <ArrowRight size={24} />
-        </div>
-        
-        <div className="pipeline-stage">
-          <div className="stage-icon">
-            <CheckCircle size={24} />
+          <div className="step-content">
+            <h4>{isTranslated ? "步骤3：英文输出" : "Step 3: English Output"}</h4>
+            <p>{isTranslated ? "西化美式英语文案" : "Westernized US English copy"}</p>
           </div>
-          <h4>English Output</h4>
-          <p>Natural, effective US marketing copy</p>
         </div>
       </div>
       
-      <div className="pipeline-insights">
-        <h4>Key Transformation Principles</h4>
-        <div className="insights-grid">
-          <div className="insight-item">
-            <h5>Order Rearrangement</h5>
-            <p>Move the most important benefit to the front</p>
-          </div>
-          <div className="insight-item">
-            <h5>Imagery Expansion</h5>
-            <p>Add concrete details that resonate with US audiences</p>
-          </div>
-          <div className="insight-item">
-            <h5>Tone Softening</h5>
-            <p>Reduce formal language, increase conversational appeal</p>
-          </div>
-          <div className="insight-item">
-            <h5>Emotional Resonance</h5>
-            <p>Connect with US cultural values and aspirations</p>
-          </div>
-        </div>
+      <div className="pipeline-tips">
+        <h4>{isTranslated ? "转换技巧" : "Transformation Tips"}</h4>
+        <ul>
+          <li>{isTranslated ? "避免直译，注重文化适应" : "Avoid literal translation, focus on cultural adaptation"}</li>
+          <li>{isTranslated ? "重新排列句子结构以符合英语习惯" : "Rearrange sentence structure to match English conventions"}</li>
+          <li>{isTranslated ? "扩展抽象概念为具体意象" : "Expand abstract concepts into concrete imagery"}</li>
+          <li>{isTranslated ? "使用英语中常见的表达方式" : "Use common expressions in English"}</li>
+        </ul>
       </div>
     </div>
   );
 
-  const renderLiveDemo = () => (
+  const renderDemo = () => (
     <div className="content-card demo">
-      <h3>Live Demo: From Mandarin to US English</h3>
+      <h3>{isTranslated ? "现场演示" : "Live Demo"}</h3>
       <p className="demo-intro">
-        Watch how we transform a literal translation into effective US marketing copy.
+        {isTranslated 
+          ? "让我们看一个具体的例子，展示如何将中文标语转换为美式英语。"
+          : "Let's look at a specific example showing how to transform a Mandarin tagline into US English."
+        }
       </p>
       
-      <div className="demo-flow">
+      <div className="demo-example">
         <div className="demo-step">
-          <h4>Original Mandarin</h4>
-          <div className="mandarin-text">{liveDemo.mandarin}</div>
-          <p className="step-label">Cultural context</p>
-        </div>
-        
-        <div className="demo-arrow">
-          <ArrowDown size={24} />
+          <h4>{isTranslated ? "原始中文：" : "Original Mandarin:"}</h4>
+          <div className="mandarin-text">"健康美味，家的味道"</div>
         </div>
         
         <div className="demo-step">
-          <h4>Literal Translation</h4>
-          <div className="literal-text">"{liveDemo.literal}"</div>
-          <p className="step-label">Word-for-word</p>
-        </div>
-        
-        <div className="demo-arrow">
-          <ArrowDown size={24} />
+          <h4>{isTranslated ? "字面翻译：" : "Literal Translation:"}</h4>
+          <div className="literal-text">"Healthy and delicious, the taste of home"</div>
         </div>
         
         <div className="demo-step">
-          <h4>US Adapted Version</h4>
-          <div className="adapted-text">"{liveDemo.adapted}"</div>
-          <p className="step-label">Westernized approach</p>
+          <h4>{isTranslated ? "美式英语改编：" : "Adapted US English:"}</h4>
+          <div className="adapted-text">"Wholesome flavor that feels like home"</div>
         </div>
       </div>
       
-      <div className="transformation-analysis">
-        <h4>What Changed & Why</h4>
-        <div className="analysis-grid">
-          <div className="analysis-item">
-            <h5>Order Swap</h5>
-            <p><strong>Before:</strong> "Healthy and delicious, the taste of home"<br/>
-            <strong>After:</strong> "Wholesome flavor that feels like home"</p>
-            <p className="explanation">Moved the benefit (wholesome flavor) to the front for immediate impact</p>
-          </div>
-          
-          <div className="analysis-item">
-            <h5>Imagery Enhancement</h5>
-            <p><strong>Before:</strong> "taste of home"<br/>
-            <strong>After:</strong> "feels like home"</p>
-            <p className="explanation">Changed from literal taste to emotional feeling for stronger connection</p>
-          </div>
-          
-          <div className="analysis-item">
-            <h5>Language Softening</h5>
-            <p><strong>Before:</strong> "Healthy and delicious"<br/>
-            <strong>After:</strong> "Wholesome flavor"</p>
-            <p className="explanation">Replaced formal adjectives with warm, approachable language</p>
-          </div>
-        </div>
+      <div className="demo-explanation">
+        <h4>{isTranslated ? "转换说明：" : "Transformation Explanation:"}</h4>
+        <ul>
+          <li><strong>{isTranslated ? "重新排列：" : "Rearranged:"}</strong> {isTranslated ? "将「健康美味」改为「美味健康」" : "Changed 'healthy and delicious' to 'delicious and healthy'"}</li>
+          <li><strong>{isTranslated ? "软化重复：" : "Softened repetition:"}</strong> {isTranslated ? "避免重复使用「味道」概念" : "Avoided repeating the 'taste' concept"}</li>
+          <li><strong>{isTranslated ? "增加情感共鸣：" : "Added emotional resonance:"}</strong> {isTranslated ? "使用「feels like」而不是「taste of」" : "Used 'feels like' instead of 'taste of'"}</li>
+        </ul>
       </div>
     </div>
   );
 
-  const renderPractice = () => (
-    <div className="content-card practice">
-      <h3>Industry Practice: Rewrite for US Social Media</h3>
-      <p className="practice-intro">
-        Practice rewriting these Mandarin lines from different industries for US social media. Create 2-3 versions each.
+  const renderExercises = () => (
+    <div className="content-card exercises">
+      <h3>{isTranslated ? "行业练习" : "Industry Exercises"}</h3>
+      <p className="exercise-instruction">
+        {isTranslated 
+          ? "现在练习将不同行业的中文标语转换为美式英语。为每个标语创建2-3个版本。"
+          : "Now practice transforming Mandarin taglines from different industries into US English. Create 2-3 versions for each tagline."
+        }
       </p>
       
       <div className="industry-exercises">
-        {industryExamples.map((example, index) => (
+        {mandarinExamples.map((example, index) => (
           <div key={index} className="industry-exercise">
-            <div className="exercise-header">
-              <h4>{example.industry}</h4>
-              <div className="original-content">
-                <div className="mandarin-text">{example.mandarin}</div>
-                <div className="literal-translation">Literal: "{example.literal}"</div>
-              </div>
+            <h4>{example.industry}</h4>
+            <div className="original-tagline">
+              <strong>{isTranslated ? "原始标语：" : "Original:"}</strong> {example.original}
+            </div>
+            <div className="literal-translation">
+              <strong>{isTranslated ? "字面意思：" : "Literal:"}</strong> {example.literal}
+            </div>
+            <div className="example-adaptation">
+              <strong>{isTranslated ? "示例改编：" : "Example adaptation:"}</strong> {example.adapted}
             </div>
             
-            <div className="rewrite-section">
-              <h5>Your US Social Media Versions:</h5>
-              <div className="rewrite-inputs">
-                {[0, 1, 2].map((inputIndex) => (
-                  <input
-                    key={inputIndex}
-                    type="text"
-                    placeholder={`Version ${inputIndex + 1}...`}
-                    value={userRewrites[example.category as keyof typeof userRewrites][inputIndex]}
-                    onChange={(e) => updateRewrite(example.category, inputIndex, e.target.value)}
-                  />
-                ))}
-              </div>
+            <div className="user-versions">
+              <h5>{isTranslated ? "你的版本：" : "Your versions:"}</h5>
+              <textarea
+                placeholder={isTranslated ? "输入你的美式英语版本..." : "Enter your US English versions..."}
+                value={exerciseAnswers[`industry${index + 1}` as keyof typeof exerciseAnswers]}
+                onChange={(e) => setExerciseAnswers({
+                  ...exerciseAnswers,
+                  [`industry${index + 1}`]: e.target.value
+                })}
+              />
             </div>
           </div>
         ))}
       </div>
       
-      <div className="practice-tips">
-        <h4>💡 Tips for Effective US Copy</h4>
+      <div className="exercise-tips">
+        <h4>{isTranslated ? "练习提示：" : "Exercise Tips:"}</h4>
         <ul>
-          <li>Start with the main benefit or solution</li>
-          <li>Use active, energetic language</li>
-          <li>Keep it conversational and friendly</li>
-          <li>Focus on what the customer gets, not what you offer</li>
-          <li>Use US cultural references when appropriate</li>
+          <li>{isTranslated ? "考虑目标受众的文化背景" : "Consider the cultural background of your target audience"}</li>
+          <li>{isTranslated ? "使用英语中常见的表达方式" : "Use common expressions in English"}</li>
+          <li>{isTranslated ? "保持原始信息的核心价值" : "Maintain the core value of the original message"}</li>
+          <li>{isTranslated ? "测试不同语调的效果" : "Test the effectiveness of different tones"}</li>
         </ul>
       </div>
     </div>
@@ -286,9 +222,9 @@ const Section3: React.FC<Section3Props> = ({ onComplete }) => {
       case 'pipeline':
         return renderPipeline();
       case 'demo':
-        return renderLiveDemo();
-      case 'practice':
-        return renderPractice();
+        return renderDemo();
+      case 'exercises':
+        return renderExercises();
       default:
         return renderPipeline();
     }
@@ -299,11 +235,11 @@ const Section3: React.FC<Section3Props> = ({ onComplete }) => {
       <div className="content-card results">
         <div className="results-header">
           <CheckCircle size={48} className="success-icon" />
-          <h2>Section 3 Complete!</h2>
-          <p>Excellent work mastering the input-to-output transformation process!</p>
+          <h2>{isTranslated ? "第3节完成！" : "Section 3 Complete!"}</h2>
+          <p>{isTranslated ? "太棒了！你已经掌握了中文到英文的转换技巧！" : "Excellent work mastering the transformation from Mandarin to English!"}</p>
         </div>
         <button className="complete-btn" onClick={handleComplete}>
-          Continue to Section 4
+          {isTranslated ? "继续第4节" : "Continue to Section 4"}
           <ArrowRight size={20} />
         </button>
       </div>
@@ -331,7 +267,10 @@ const Section3: React.FC<Section3Props> = ({ onComplete }) => {
           className="nav-btn next-btn"
           onClick={handleNext}
         >
-          {currentStep === steps.length - 1 ? 'Complete Section' : 'Next Step'}
+          {currentStep === steps.length - 1 
+            ? (isTranslated ? '完成本节' : 'Complete Section') 
+            : (isTranslated ? '下一步' : 'Next Step')
+          }
           <ArrowRight size={20} />
         </button>
       </div>
