@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 const LandingPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isTranslated, setIsTranslated] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -17,15 +18,8 @@ const LandingPage: React.FC = () => {
       setActiveFeature((prev) => (prev + 1) % 3);
     }, 3000);
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
     return () => {
       clearInterval(interval);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -38,6 +32,62 @@ const LandingPage: React.FC = () => {
 
   const toggleTranslation = () => {
     setIsTranslated(!isTranslated);
+  };
+
+  const handleAgentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Always prevent default to handle submission manually
+    
+    const form = e.currentTarget;
+    if (!form) return;
+    
+    const formData = new FormData(form);
+    const courseRequest = formData.get('course_request') as string;
+    
+    if (!courseRequest || !courseRequest.trim()) {
+      alert('Please describe your professional domain and learning objectives before submitting.');
+      return;
+    }
+    
+    // Show loading state
+    setIsSubmitting(true);
+    
+    // Submit to Formspree manually
+    fetch('https://formspree.io/f/xvgbolaz', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      console.log('Formspree response:', response);
+      if (response.ok || response.status === 200 || response.status === 302) {
+        // Success - show animation
+        setIsSubmitting(false);
+        setShowSuccess(true);
+        
+        // Reset form safely
+        if (form) {
+          form.reset();
+          const charCountElement = document.querySelector('.char-count');
+          if (charCountElement) {
+            charCountElement.textContent = '0/1000';
+          }
+        }
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 5000);
+      } else {
+        throw new Error(`Submission failed with status: ${response.status}`);
+      }
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      setIsSubmitting(false);
+      alert('There was an error submitting your request. Please try again.');
+    });
   };
 
   const features = [
@@ -75,22 +125,10 @@ const LandingPage: React.FC = () => {
       </div>
 
       <div className="container">
-        {/* Header Section */}
-        <header className={`header ${isVisible ? 'fade-in' : ''}`}>
-          <div className="logo">
-            <div className="logo-container">
-              <img src={logo} alt="Verbiya Logo" className="logo-image" />
-              <div className="logo-glow"></div>
-            </div>
-            <div className="logo-text">
-              <span className="logo-title">Verbiya</span>
-              <span className="logo-subtitle">Professional English Learning</span>
-            </div>
-          </div>
-        </header>
 
-        {/* Scrollable Menu Bar */}
-        <nav className={`scrollable-menu ${isScrolled ? 'visible' : ''}`}>
+
+        {/* Fixed Menu Bar - Always Visible */}
+        <nav className="scrollable-menu">
           <div className="menu-container">
             <div className="menu-logo">
               <img src={logo} alt="Verbiya Logo" className="menu-logo-image" />
@@ -100,7 +138,7 @@ const LandingPage: React.FC = () => {
             <div className="menu-links">
               <button onClick={() => scrollToSection('features')} className="menu-link">Features</button>
               <button onClick={() => scrollToSection('courses')} className="menu-link">Course</button>
-              <button onClick={() => scrollToSection('custom')} className="menu-link">Customize</button>
+              <button onClick={() => scrollToSection('custom')} className="menu-link">Agent</button>
             </div>
             
             <div className="menu-actions">
@@ -112,8 +150,8 @@ const LandingPage: React.FC = () => {
                 <Languages size={16} />
                 <span>{isTranslated ? "English" : "中文"}</span>
               </button>
-              <button className="menu-btn menu-btn-secondary">Login</button>
-              <button className="menu-btn menu-btn-primary">Get Started</button>
+              <Link to="/auth" className="menu-btn menu-btn-secondary">Login</Link>
+              <Link to="/auth" className="menu-btn menu-btn-primary">Get Started</Link>
             </div>
           </div>
         </nav>
@@ -146,7 +184,7 @@ const LandingPage: React.FC = () => {
             </p>
             
             <div className="hero-actions">
-              <Link to="/course/asian-marketing" className="btn btn-primary">
+              <Link to="/auth" className="btn btn-primary">
                 <Play size={20} />
                 <span>Try Our First Course</span>
               </Link>
@@ -161,14 +199,17 @@ const LandingPage: React.FC = () => {
             <div className="floating-card floating-card-1">
               <Target size={24} />
               <span>Biotech</span>
+              <span className="coming-soon-label">{isTranslated ? "即將推出" : "Coming Soon"}</span>
             </div>
             <div className="floating-card floating-card-2">
               <BarChart3 size={24} />
               <span>Business</span>
+              <span className="coming-soon-label">{isTranslated ? "即將推出" : "Coming Soon"}</span>
             </div>
             <div className="floating-card floating-card-3">
               <BookOpen size={24} />
               <span>Chemistry</span>
+              <span className="coming-soon-label">{isTranslated ? "即將推出" : "Coming Soon"}</span>
             </div>
           </div>
         </section>
@@ -261,7 +302,7 @@ const LandingPage: React.FC = () => {
                   </div>
                 </div>
                 
-                <Link to="/course/asian-marketing" className="start-learning-btn">
+                <Link to="/auth" className="start-learning-btn">
                   <span>开始学习 Start Learning</span>
                   <ArrowRight size={18} />
                 </Link>
@@ -319,12 +360,19 @@ const LandingPage: React.FC = () => {
               Describe your professional domain and learning objectives, and our system will design a specialized course for your needs.
             </p>
             
-            <div className="input-section">
+            <form 
+              action="https://formspree.io/f/xvgbolaz" 
+              method="POST" 
+              className="input-section"
+              onSubmit={handleAgentSubmit}
+            >
               <div className="input-container">
                 <textarea 
+                  name="course_request"
                   className="course-description-input"
                   placeholder="Describe your professional domain and specific learning objectives: your industry, role, target proficiency level, specific challenges you face in professional English communication..."
                   rows={4}
+                  required
                   onChange={(e) => {
                     const charCount = e.target.value.length;
                     const charCountElement = document.querySelector('.char-count');
@@ -333,27 +381,34 @@ const LandingPage: React.FC = () => {
                     }
                   }}
                 />
-                <button className="send-button" onClick={() => {
-                  const textarea = document.querySelector('.course-description-input') as HTMLTextAreaElement;
-                  if (textarea && textarea.value.trim()) {
-                    alert('Thank you! Your custom course request has been submitted. Our agentic learning system will analyze your requirements and create a personalized course within 48 hours.');
-                    textarea.value = '';
-                    const charCountElement = document.querySelector('.char-count');
-                    if (charCountElement) {
-                      charCountElement.textContent = '0/1000';
-                    }
-                  } else {
-                    alert('Please describe your professional domain and learning objectives before submitting.');
-                  }
-                }}>
-                  <ArrowRight size={20} />
+                <button 
+                  type="submit"
+                  className={`send-button ${isSubmitting ? 'submitting' : ''}`} 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <div className="loading-spinner"></div>
+                  ) : (
+                    <ArrowRight size={20} />
+                  )}
                 </button>
               </div>
               <div className="input-help">
                 <span>Press Enter to send • Shift + Enter for new line</span>
                 <span className="char-count">0/1000</span>
               </div>
-            </div>
+              
+              {/* Success Message */}
+              {showSuccess && (
+                <div className="success-message">
+                  <div className="success-icon">✓</div>
+                  <div className="success-content">
+                    <h4>Request Submitted Successfully! 🎉</h4>
+                    <p>Our AI agent is analyzing your requirements and will create a personalized course within 48 hours.</p>
+                  </div>
+                </div>
+              )}
+            </form>
           </div>
         </section>
 

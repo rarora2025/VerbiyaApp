@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import CourseSidebar from '../CourseSidebar/CourseSidebar';
 import Section1 from './sections/Section1';
 import Section2 from './sections/Section2';
@@ -51,7 +53,13 @@ const CoursePage: React.FC = () => {
       />
       <div className="course-content-area">
         <div className="section-header">
-          <h1 className="section-title">{sectionNames[currentSection as keyof typeof sectionNames]}</h1>
+          <div className="header-top">
+            <Link to="/" className="back-to-home-btn">
+              <ArrowLeft size={20} />
+              <span>Back to Home</span>
+            </Link>
+            <h1 className="section-title">{sectionNames[currentSection as keyof typeof sectionNames]}</h1>
+          </div>
           <div className="section-progress">
             <div className="progress-dots">
               {[1, 2, 3, 4].map((section) => (
