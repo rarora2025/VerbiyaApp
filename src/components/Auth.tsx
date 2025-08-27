@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Mail, User, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Auth.css';
 
 const Auth: React.FC = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ const Auth: React.FC = () => {
           
           // Redirect to course after 2 seconds
           setTimeout(() => {
-            window.location.href = '/#/course/asian-marketing';
+            navigate('/course/asian-marketing');
           }, 2000);
         } else {
           setError('Invalid email or password. Try demo@verbiya.com / demo123');
