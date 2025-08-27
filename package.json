@@ -1,7 +1,7 @@
 {
   "name": "verbiya",
   "version": "1.0.0",
-  "homepage": "https://rarora2025.github.io/VerbiyaApp",
+  "homepage": "https://rarora2025.github.io/VerbiyaApp/",
   "private": true,
   "dependencies": {
     "@types/node": "^16.18.0",
