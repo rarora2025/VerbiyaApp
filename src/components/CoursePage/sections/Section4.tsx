@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Play, Target, Lightbulb, Edit3, Eye } from 'lucide-react';
+import { ArrowRight, CheckCircle, Play } from 'lucide-react';
 import './Section4.css';
 
 interface Section4Props {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, ArrowRightLeft, Play, FileText } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowRightLeft, FileText } from 'lucide-react';
 import './Section3.css';
 
 interface Section3Props {
