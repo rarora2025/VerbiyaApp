@@ -18,23 +18,23 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
   const sections = [
     { 
       id: 1, 
-      title: isTranslated ? '美国市场与文化分析' : 'US Market & Cultural Analysis',
-      subtitle: isTranslated ? '了解美国市场与规模' : 'Understanding the US Market & Scale'
+      title: isTranslated ? '美國市場與文化分析' : 'US Market & Cultural Analysis',
+      subtitle: isTranslated ? '了解美國市場與規模' : 'Understanding the US Market & Scale'
     },
     { 
       id: 2, 
-      title: isTranslated ? '中文解构框架' : 'Mandarin Deconstruction Framework',
-      subtitle: isTranslated ? '学习如何解构中文标语' : 'Learn to deconstruct Mandarin taglines'
+      title: isTranslated ? '中文解構框架' : 'Mandarin Deconstruction Framework',
+      subtitle: isTranslated ? '學習如何解構中文標語' : 'Learn to deconstruct Mandarin taglines'
     },
     { 
       id: 3, 
-      title: isTranslated ? '输入输出转换' : 'Input-to-Output Transformation',
-      subtitle: isTranslated ? '中文到英文的转换流程' : 'Mandarin to English transformation'
+      title: isTranslated ? '輸入輸出轉換' : 'Input-to-Output Transformation',
+      subtitle: isTranslated ? '中文到英文的轉換流程' : 'Mandarin to English transformation'
     },
     { 
       id: 4, 
-      title: isTranslated ? '互动练习与掌握' : 'Interactive Practice & Mastery',
-      subtitle: isTranslated ? '实践练习与技能掌握' : 'Practice exercises and skill mastery'
+      title: isTranslated ? '互動練習與掌握' : 'Interactive Practice & Mastery',
+      subtitle: isTranslated ? '實踐練習與技能掌握' : 'Practice exercises and skill mastery'
     },
   ];
 
@@ -51,7 +51,7 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
     <div className="course-sidebar">
       <div className="sidebar-header">
         <BookOpen size={24} />
-        <h2>{isTranslated ? '课程内容' : 'Course Content'}</h2>
+        <h2>{isTranslated ? '課程內容' : 'Course Content'}</h2>
       </div>
       <nav className="sidebar-nav">
         <ul>
@@ -69,17 +69,17 @@ const CourseSidebar: React.FC<CourseSidebarProps> = ({
                 <span className="section-subtitle">{section.subtitle}</span>
               </div>
               {completedSections.includes(section.id) && <CheckCircle size={16} className="completed-icon" />}
-              {section.id > 1 && <span className="locked-label">{isTranslated ? '预览' : 'Preview'}</span>}
+              {section.id > 1 && <span className="locked-label">{isTranslated ? '預覽' : 'Preview'}</span>}
             </li>
           ))}
         </ul>
       </nav>
       <div className="sidebar-footer">
-        <p>{isTranslated ? '进度' : 'Progress'}: {Math.round(progressPercentage)}%</p>
+        <p>{isTranslated ? '進度' : 'Progress'}: {Math.round(progressPercentage)}%</p>
         <div className="progress-bar">
           <div className="progress" style={{ width: `${progressPercentage}%` }}></div>
         </div>
-        <p className="preview-note">{isTranslated ? '仅第1节可用，其余为预览' : 'Only Section 1 available, others are preview'}</p>
+        <p className="preview-note">{isTranslated ? '僅第1節可用，其餘為預覽' : 'Only Section 1 available, others are preview'}</p>
       </div>
     </div>
   );

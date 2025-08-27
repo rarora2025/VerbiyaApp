@@ -14,14 +14,14 @@ const CoursePage: React.FC = () => {
   const [isTranslated, setIsTranslated] = useState(false);
 
   const sectionNames = {
-    1: isTranslated ? "美国市场与文化分析" : "US Market & Cultural Analysis",
-    2: isTranslated ? "中文解构框架" : "Mandarin Deconstruction Framework", 
-    3: isTranslated ? "输入输出转换" : "Input-to-Output Transformation",
-    4: isTranslated ? "互动练习与掌握" : "Interactive Practice & Mastery"
+    1: isTranslated ? "美國市場與文化分析" : "US Market & Cultural Analysis",
+    2: isTranslated ? "中文解構框架" : "Mandarin Deconstruction Framework", 
+    3: isTranslated ? "輸入輸出轉換" : "Input-to-Output Transformation",
+    4: isTranslated ? "互動練習與掌握" : "Interactive Practice & Mastery"
   };
 
   const courseTitle = isTranslated 
-    ? "课程设计：面向亚洲营销人员的在线营销" 
+    ? "課程設計：面向亞洲營銷人員的在線營銷" 
     : "Course Design: Online Marketing for Asian Marketers";
 
   const handleSectionComplete = (sectionId: number) => {
@@ -57,48 +57,48 @@ const CoursePage: React.FC = () => {
     <div className="preview-content">
       <div className="preview-header">
         <Lock size={48} className="lock-icon" />
-        <h2>{isTranslated ? "预览内容" : "Preview Content"}</h2>
-        <p>{isTranslated ? "这是课程的预览版本。完整课程即将推出！" : "This is a preview of the course. Full course coming soon!"}</p>
+        <h2>{isTranslated ? "預覽內容" : "Preview Content"}</h2>
+        <p>{isTranslated ? "這是課程的預覽版本。完整課程即將推出！" : "This is a preview of the course. Full course coming soon!"}</p>
       </div>
       
       <div className="preview-sections">
         <div className="preview-section">
-          <h3>{isTranslated ? "第2节：中文解构框架" : "Section 2: Mandarin Deconstruction Framework"}</h3>
-          <p>{isTranslated ? "学习如何将中文营销标语「解构」为核心概念和西方情感触发点，然后重新编写。" : "Learn how to 'deconstruct' a Mandarin written tagline into core ideas and western emotional triggers before rewriting."}</p>
+          <h3>{isTranslated ? "第2節：中文解構框架" : "Section 2: Mandarin Deconstruction Framework"}</h3>
+          <p>{isTranslated ? "學習如何將中文營銷標語「解構」為核心概念和西方情感觸發點，然後重新編寫。" : "Learn how to 'deconstruct' a Mandarin written tagline into core ideas and western emotional triggers before rewriting."}</p>
           <div className="preview-features">
-            <span className="preview-feature">{isTranslated ? "框架步骤" : "Framework Steps"}</span>
+            <span className="preview-feature">{isTranslated ? "框架步驟" : "Framework Steps"}</span>
             <span className="preview-feature">{isTranslated ? "核心利益分析" : "Core Benefit Analysis"}</span>
-            <span className="preview-feature">{isTranslated ? "情感钩子识别" : "Emotional Hook Identification"}</span>
-            <span className="preview-feature">{isTranslated ? "护肤标语练习" : "Skincare Slogan Exercise"}</span>
+            <span className="preview-feature">{isTranslated ? "情感鉤子識別" : "Emotional Hook Identification"}</span>
+            <span className="preview-feature">{isTranslated ? "護膚標語練習" : "Skincare Slogan Exercise"}</span>
           </div>
         </div>
 
         <div className="preview-section">
-          <h3>{isTranslated ? "第3节：输入输出转换" : "Section 3: Input-to-Output Transformation"}</h3>
-          <p>{isTranslated ? "学习如何将中文术语和短语输入到美式英语重写格式中。" : "Learn how to feed Mandarin terms and phrases into a U.S. style English rewrite format."}</p>
+          <h3>{isTranslated ? "第3節：輸入輸出轉換" : "Section 3: Input-to-Output Transformation"}</h3>
+          <p>{isTranslated ? "學習如何將中文術語和短語輸入到美式英語重寫格式中。" : "Learn how to feed Mandarin terms and phrases into a U.S. style English rewrite format."}</p>
           <div className="preview-features">
-            <span className="preview-feature">{isTranslated ? "管道图表" : "Pipeline Chart"}</span>
-            <span className="preview-feature">{isTranslated ? "现场演示" : "Live Demo"}</span>
-            <span className="preview-feature">{isTranslated ? "行业练习" : "Industry Exercises"}</span>
+            <span className="preview-feature">{isTranslated ? "管道圖表" : "Pipeline Chart"}</span>
+            <span className="preview-feature">{isTranslated ? "現場演示" : "Live Demo"}</span>
+            <span className="preview-feature">{isTranslated ? "行業練習" : "Industry Exercises"}</span>
           </div>
         </div>
 
         <div className="preview-section">
-          <h3>{isTranslated ? "第4节：互动模块" : "Section 4: Interactive Module"}</h3>
-          <p>{isTranslated ? "教学习者如何将中文营销标语提炼成美式英语文案。" : "Teach learners to take a Mandarin marketing line and refine it into U.S. English copy."}</p>
+          <h3>{isTranslated ? "第4節：互動模塊" : "Section 4: Interactive Module"}</h3>
+          <p>{isTranslated ? "教學習者如何將中文營銷標語提煉成美式英語文案。" : "Teach learners to take a Mandarin marketing line and refine it into U.S. English copy."}</p>
           <div className="preview-features">
-            <span className="preview-feature">{isTranslated ? "介绍动画" : "Intro Animation"}</span>
-            <span className="preview-feature">{isTranslated ? "引导分解" : "Guided Breakdown"}</span>
-            <span className="preview-feature">{isTranslated ? "重写练习" : "Rewrite Practice"}</span>
-            <span className="preview-feature">{isTranslated ? "前后对比" : "Before/After Gallery"}</span>
+            <span className="preview-feature">{isTranslated ? "介紹動畫" : "Intro Animation"}</span>
+            <span className="preview-feature">{isTranslated ? "引導分解" : "Guided Breakdown"}</span>
+            <span className="preview-feature">{isTranslated ? "重寫練習" : "Rewrite Practice"}</span>
+            <span className="preview-feature">{isTranslated ? "前後對比" : "Before/After Gallery"}</span>
           </div>
         </div>
       </div>
 
       <div className="preview-footer">
-        <p>{isTranslated ? "完整课程将包括所有互动练习、详细示例和个性化反馈。" : "The full course will include all interactive exercises, detailed examples, and personalized feedback."}</p>
+        <p>{isTranslated ? "完整課程將包括所有互動練習、詳細示例和個性化反饋。" : "The full course will include all interactive exercises, detailed examples, and personalized feedback."}</p>
         <button className="notify-btn">
-          {isTranslated ? "课程发布时通知我" : "Notify me when course launches"}
+          {isTranslated ? "課程發布時通知我" : "Notify me when course launches"}
         </button>
       </div>
     </div>
@@ -117,7 +117,7 @@ const CoursePage: React.FC = () => {
           <div className="header-top">
             <Link to="/" className="back-to-home-btn">
               <ArrowLeft size={20} />
-              <span>{isTranslated ? "返回首页" : "Back to Home"}</span>
+              <span>{isTranslated ? "返回首頁" : "Back to Home"}</span>
             </Link>
             <div className="header-content">
               <h1 className="course-title">{courseTitle}</h1>

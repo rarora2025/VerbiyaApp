@@ -14,19 +14,19 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
 
   const steps = [
     {
-      title: isTranslated ? "介绍动画" : "Intro Animation",
+      title: isTranslated ? "介紹動畫" : "Intro Animation",
       content: "intro"
     },
     {
-      title: isTranslated ? "引导分解" : "Guided Breakdown",
+      title: isTranslated ? "引導分解" : "Guided Breakdown",
       content: "breakdown"
     },
     {
-      title: isTranslated ? "重写练习" : "Rewrite Practice",
+      title: isTranslated ? "重寫練習" : "Rewrite Practice",
       content: "practice"
     },
     {
-      title: isTranslated ? "前后对比" : "Before/After Gallery",
+      title: isTranslated ? "前後對比" : "Before/After Gallery",
       content: "gallery"
     }
   ];
@@ -57,10 +57,10 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
 
   const renderIntro = () => (
     <div className="content-card intro">
-      <h3>{isTranslated ? "介绍动画" : "Intro Animation"}</h3>
+      <h3>{isTranslated ? "介紹動畫" : "Intro Animation"}</h3>
       <p className="intro-description">
         {isTranslated 
-          ? "观看一个简短的视频，展示中文到英文的字面翻译以及为什么它在美国语境中不起作用。"
+          ? "觀看一個簡短的視頻，展示中文到英文的字面翻譯以及為什麼它在美國語境中不起作用。"
           : "Short video showing a literal Mandarin to English translation and why it doesn't work in a US context."
         }
       </p>
@@ -68,17 +68,17 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
       <div className="video-container">
         <div className="video-placeholder">
           <Play size={48} className="play-icon" />
-          <p>{isTranslated ? "点击播放介绍视频" : "Click to play intro video"}</p>
+          <p>{isTranslated ? "點擊播放介紹視頻" : "Click to play intro video"}</p>
         </div>
       </div>
       
       <div className="intro-content">
-        <h4>{isTranslated ? "视频要点：" : "Video Key Points:"}</h4>
+        <h4>{isTranslated ? "視頻要點：" : "Video Key Points:"}</h4>
         <ul>
-          <li>{isTranslated ? "字面翻译的问题" : "Problems with literal translation"}</li>
-          <li>{isTranslated ? "语调不匹配" : "Tone mismatch"}</li>
-          <li>{isTranslated ? "文化差异" : "Cultural differences"}</li>
-          <li>{isTranslated ? "美国受众的期望" : "US audience expectations"}</li>
+          <li>{isTranslated ? "字面翻譯的問題" : "Problems with literal translation"}</li>
+          <li>{isTranslated ? "語調不匹配" : "Tone mismatch"}</li>
+          <li>{isTranslated ? "文化差異" : "Cultural differences"}</li>
+          <li>{isTranslated ? "美國受眾的期望" : "US audience expectations"}</li>
         </ul>
       </div>
     </div>
@@ -86,39 +86,39 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
 
   const renderBreakdown = () => (
     <div className="content-card breakdown">
-      <h3>{isTranslated ? "引导分解" : "Guided Breakdown"}</h3>
+      <h3>{isTranslated ? "引導分解" : "Guided Breakdown"}</h3>
       <p className="breakdown-description">
         {isTranslated 
-          ? "幻灯片轮播突出显示关键问题：语调不匹配、利益不明确、文化错位。每个部分都有一个快速的「发现问题」测验。"
+          ? "幻燈片輪播突出顯示關鍵問題：語調不匹配、利益不明確、文化錯位。每個部分都有一個快速的「發現問題」測驗。"
           : "Slide carousel that highlights the key issues: tone mismatch, unclear benefit, cultural misalignment. Each section has a quick 'spot the problem' quiz."
         }
       </p>
       
       <div className="breakdown-slides">
         <div className="slide active">
-          <h4>{isTranslated ? "问题1：语调不匹配" : "Issue 1: Tone Mismatch"}</h4>
+          <h4>{isTranslated ? "問題1：語調不匹配" : "Issue 1: Tone Mismatch"}</h4>
           <div className="problem-example">
             <p className="mandarin-text">{mandarinTagline.original}</p>
             <p className="literal-text">{mandarinTagline.literal}</p>
           </div>
           <div className="problem-analysis">
-            <p><strong>{isTranslated ? "问题：" : "Problem:"}</strong> {isTranslated ? "中文标语使用正式、诗意的语调，而美国受众更喜欢直接、对话式的语调。" : "The Mandarin tagline uses formal, poetic tone while US audiences prefer direct, conversational tone."}</p>
+            <p><strong>{isTranslated ? "問題：" : "Problem:"}</strong> {isTranslated ? "中文標語使用正式、詩意的語調，而美國受眾更喜歡直接、對話式的語調。" : "The Mandarin tagline uses formal, poetic tone while US audiences prefer direct, conversational tone."}</p>
           </div>
         </div>
         
         <div className="slide">
-          <h4>{isTranslated ? "问题2：利益不明确" : "Issue 2: Unclear Benefit"}</h4>
+          <h4>{isTranslated ? "問題2：利益不明確" : "Issue 2: Unclear Benefit"}</h4>
           <div className="problem-example">
             <p className="mandarin-text">{mandarinTagline.original}</p>
             <p className="literal-text">{mandarinTagline.literal}</p>
           </div>
           <div className="problem-analysis">
-            <p><strong>{isTranslated ? "问题：" : "Problem:"}</strong> {isTranslated ? "多个抽象概念（滋养、修护、焕发）使核心利益不明确。" : "Multiple abstract concepts (nourish, repair, radiate) make the core benefit unclear."}</p>
+            <p><strong>{isTranslated ? "問題：" : "Problem:"}</strong> {isTranslated ? "多個抽象概念（滋養、修護、煥發）使核心利益不明確。" : "Multiple abstract concepts (nourish, repair, radiate) make the core benefit unclear."}</p>
           </div>
         </div>
         
         <div className="slide">
-          <h4>{isTranslated ? "问题3：文化错位" : "Issue 3: Cultural Misalignment"}</h4>
+          <h4>{isTranslated ? "問題3：文化錯位" : "Issue 3: Cultural Misalignment"}</h4>
           <div className="problem-example">
             <p className="mandarin-text">{mandarinTagline.original}</p>
             <p className="literal-text">{mandarinTagline.literal}</p>
@@ -139,10 +139,10 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
 
   const renderPractice = () => (
     <div className="content-card practice">
-      <h3>{isTranslated ? "重写练习" : "Rewrite Practice"}</h3>
+      <h3>{isTranslated ? "重寫練習" : "Rewrite Practice"}</h3>
       <p className="practice-description">
         {isTranslated 
-          ? "互动文本输入框，学习者可以重写标语。AI或预加载的反馈弹出给出提示。"
+          ? "互動文本輸入框，學習者可以重寫標語。AI或預加載的反饋彈出給出提示。"
           : "Interactive text entry box where learners rewrite the line. AI or pre-loaded feedback pop up gives hints."
         }
       </p>
@@ -178,10 +178,10 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
 
   const renderGallery = () => (
     <div className="content-card gallery">
-      <h3>{isTranslated ? "前后对比画廊" : "Before/After Gallery"}</h3>
+      <h3>{isTranslated ? "前後對比畫廊" : "Before/After Gallery"}</h3>
       <p className="gallery-description">
         {isTranslated 
-          ? "学习者可以翻转卡片来查看专业重写并与自己的进行比较。"
+          ? "學習者可以翻轉卡片來查看專業重寫並與自己的進行比較。"
           : "Learners can flip cards to see professional rewrites and compare to their own."
         }
       </p>
@@ -260,8 +260,8 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
       <div className="content-card results">
         <div className="results-header">
           <CheckCircle size={48} className="success-icon" />
-          <h2>{isTranslated ? "第4节完成！" : "Section 4 Complete!"}</h2>
-          <p>{isTranslated ? "恭喜！你已经掌握了互动练习和技能掌握！" : "Congratulations! You've mastered the interactive practice and skill mastery!"}</p>
+          <h2>{isTranslated ? "第4節完成！" : "Section 4 Complete!"}</h2>
+          <p>{isTranslated ? "恭喜！你已經掌握了互動練習和技能掌握！" : "Congratulations! You've mastered the interactive practice and skill mastery!"}</p>
         </div>
         <button className="complete-btn" onClick={handleComplete}>
           {isTranslated ? "完成课程" : "Complete Course"}
@@ -293,7 +293,7 @@ const Section4: React.FC<Section4Props> = ({ onComplete, isTranslated }) => {
           onClick={handleNext}
         >
           {currentStep === steps.length - 1 
-            ? (isTranslated ? '完成本节' : 'Complete Section') 
+            ? (isTranslated ? '完成本節' : 'Complete Section') 
             : (isTranslated ? '下一步' : 'Next Step')
           }
           <ArrowRight size={20} />

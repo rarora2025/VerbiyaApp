@@ -23,7 +23,7 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
 
   const steps = [
     {
-      title: isTranslated ? "框架介绍" : "Framework Introduction",
+      title: isTranslated ? "框架介紹" : "Framework Introduction",
       content: "framework"
     },
     {
@@ -31,15 +31,15 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
       content: "core-benefit"
     },
     {
-      title: isTranslated ? "情感钩子识别" : "Emotional Hook Identification",
+      title: isTranslated ? "情感鉤子識別" : "Emotional Hook Identification",
       content: "emotional-hook"
     },
     {
-      title: isTranslated ? "语调选择" : "Tone Selection",
+      title: isTranslated ? "語調選擇" : "Tone Selection",
       content: "tone"
     },
     {
-      title: isTranslated ? "护肤标语练习" : "Skincare Slogan Exercise",
+      title: isTranslated ? "護膚標語練習" : "Skincare Slogan Exercise",
       content: "exercise"
     }
   ];
@@ -47,7 +47,7 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
   const skincareSlogan = {
     original: "天然滋养，深层修护，焕发青春光彩",
     literal: "Natural nourishment, deep repair, radiate youthful glow",
-    category: isTranslated ? "护肤" : "Skincare"
+    category: isTranslated ? "護膚" : "Skincare"
   };
 
   const handleNext = () => {
@@ -64,10 +64,10 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
 
   const renderFramework = () => (
     <div className="content-card framework">
-      <h3>{isTranslated ? "解构中文标语" : "Deconstructing Mandarin Taglines"}</h3>
+      <h3>{isTranslated ? "解構中文標語" : "Deconstructing Mandarin Taglines"}</h3>
       <p className="framework-intro">
         {isTranslated 
-          ? "学习如何将中文营销标语「解构」为核心概念和西方情感触发点，然后重新编写。"
+          ? "學習如何將中文營銷標語「解構」為核心概念和西方情感觸發點，然後重新編寫。"
           : "Learn how to 'deconstruct' a Mandarin written tagline into core ideas and western emotional triggers before rewriting."
         }
       </p>
@@ -78,9 +78,9 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
             <Target size={24} />
           </div>
           <div className="step-content">
-            <h4>{isTranslated ? "步骤1：识别核心利益" : "STEP 1: Identify Core Benefit"}</h4>
+            <h4>{isTranslated ? "步驟1：識別核心利益" : "STEP 1: Identify Core Benefit"}</h4>
             <p>{isTranslated 
-              ? "你的公司在这里承诺什么？(例如：速度、美丽、安全、便利)"
+              ? "你的公司在這裡承諾什麼？(例如：速度、美麗、安全、便利)"
               : "What is being promised by your company here? (e.g., speed, beauty, safety, convenience)"
             }</p>
           </div>
@@ -91,9 +91,9 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
             <Heart size={24} />
           </div>
           <div className="step-content">
-            <h4>{isTranslated ? "步骤2：识别情感钩子" : "STEP 2: Identify Emotional Hook"}</h4>
+            <h4>{isTranslated ? "步驟2：識別情感鉤子" : "STEP 2: Identify Emotional Hook"}</h4>
             <p>{isTranslated 
-              ? "你试图触发什么情感反应？(例如：骄傲、信任、独特性、紧迫感)"
+              ? "你試圖觸發什麼情感反應？(例如：驕傲、信任、獨特性、緊迫感)"
               : "What emotional response are you trying to trigger? (e.g., pride, trust, exclusivity, urgency)"
             }</p>
           </div>
@@ -104,9 +104,9 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
             <Zap size={24} />
           </div>
           <div className="step-content">
-            <h4>{isTranslated ? "步骤3：选择正确语调" : "STEP 3: Choose Correct Tone"}</h4>
+            <h4>{isTranslated ? "步驟3：選擇正確語調" : "STEP 3: Choose Correct Tone"}</h4>
             <p>{isTranslated 
-              ? "什么语调匹配你的目标受众？(例如：有趣、解决问题、权威、友好)"
+              ? "什麼語調匹配你的目標受眾？(例如：有趣、解決問題、權威、友好)"
               : "What tone matches your target audience? (e.g., playful, problem-solving, authoritative, friendly)"
             }</p>
           </div>
@@ -120,7 +120,7 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
       <h3>{isTranslated ? "核心利益分析" : "Core Benefit Analysis"}</h3>
       <p className="step-description">
         {isTranslated 
-          ? "让我们练习识别营销信息中的核心利益。核心利益是你的产品/服务实际为客户提供的东西。"
+          ? "讓我們練習識別營銷信息中的核心利益。核心利益是你的產品/服務實際為客戶提供的東西。"
           : "Let's practice identifying the core benefit in marketing messages. The core benefit is what your product/service actually delivers to the customer."
         }
       </p>
@@ -146,8 +146,8 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
       </div>
       
       <div className="practice-section">
-        <h4>{isTranslated ? "练习：识别核心利益" : "Practice: Identify Core Benefits"}</h4>
-        <p>{isTranslated ? "这些标语中的核心利益是什么？" : "What are the core benefits in these taglines?"}</p>
+                  <h4>{isTranslated ? "練習：識別核心利益" : "Practice: Identify Core Benefits"}</h4>
+                  <p>{isTranslated ? "這些標語中的核心利益是什麼？" : "What are the core benefits in these taglines?"}</p>
         <div className="practice-examples">
           <div className="practice-item">
             <p>"快速配送，准时到达" (Fast delivery, arrive on time)</p>
@@ -197,8 +197,8 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
       </div>
       
       <div className="practice-section">
-        <h4>{isTranslated ? "练习：识别情感钩子" : "Practice: Identify Emotional Hooks"}</h4>
-        <p>{isTranslated ? "这个标语试图触发什么情感反应？" : "What emotional response is this tagline trying to trigger?"}</p>
+                  <h4>{isTranslated ? "練習：識別情感鉤子" : "Practice: Identify Emotional Hooks"}</h4>
+                  <p>{isTranslated ? "這個標語試圖觸發什麼情感反應？" : "What emotional response is this tagline trying to trigger?"}</p>
         <div className="practice-examples">
           <div className="practice-item">
             <p>"专属定制，与众不同" (Exclusive customization, different from others)</p>
@@ -251,8 +251,8 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
       </div>
       
       <div className="practice-section">
-        <h4>{isTranslated ? "练习：选择正确的语调" : "Practice: Choose the Right Tone"}</h4>
-        <p>{isTranslated ? "对于针对年轻专业人士的护肤产品，哪种语调最有效？" : "For a skincare product targeting young professionals, which tone would be most effective?"}</p>
+                  <h4>{isTranslated ? "練習：選擇正確的語調" : "Practice: Choose the Right Tone"}</h4>
+                  <p>{isTranslated ? "對於針對年輕專業人士的護膚產品，哪種語調最有效？" : "For a skincare product targeting young professionals, which tone would be most effective?"}</p>
         <div className="practice-examples">
           <div className="practice-item">
             <select
@@ -273,31 +273,31 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
 
   const renderExercise = () => (
     <div className="content-card exercise">
-      <h3>{isTranslated ? "护肤标语练习" : "Skincare Slogan Exercise"}</h3>
+      <h3>{isTranslated ? "護膚標語練習" : "Skincare Slogan Exercise"}</h3>
       <p className="exercise-instruction">
         {isTranslated 
-          ? "现在让我们将我们的框架应用到真实的中文护肤标语上。逐步分解它。"
+          ? "現在讓我們將我們的框架應用到真實的中文護膚標語上。逐步分解它。"
           : "Now let's apply our framework to a real Mandarin skincare slogan. Break it down step by step."
         }
       </p>
       
       <div className="slogan-display">
         <div className="original-slogan">
-          <h4>{isTranslated ? "原始中文标语：" : "Original Mandarin Slogan:"}</h4>
+          <h4>{isTranslated ? "原始中文標語：" : "Original Mandarin Slogan:"}</h4>
           <div className="mandarin-text">{skincareSlogan.original}</div>
           <div className="literal-translation">{isTranslated ? "字面意思" : "Literal"}: "{skincareSlogan.literal}"</div>
         </div>
       </div>
       
       <div className="framework-application">
-        <h4>{isTranslated ? "应用框架：" : "Apply the Framework:"}</h4>
+        <h4>{isTranslated ? "應用框架：" : "Apply the Framework:"}</h4>
         
         <div className="framework-step">
-          <h5>{isTranslated ? "步骤1：标记利益词汇" : "STEP 1: Mark the Benefiting Words"}</h5>
-          <p>{isTranslated ? "哪些词汇描述了产品为客户做什么？" : "Which words describe what the product does for the customer?"}</p>
+          <h5>{isTranslated ? "步驟1：標記利益詞彙" : "STEP 1: Mark the Benefiting Words"}</h5>
+          <p>{isTranslated ? "哪些詞彙描述了產品為客戶做什麼？" : "Which words describe what the product does for the customer?"}</p>
           <input
             type="text"
-            placeholder={isTranslated ? "例如：滋养、修护、焕发..." : "e.g., nourish, repair, radiate..."}
+            placeholder={isTranslated ? "例如：滋養、修護、煥發..." : "e.g., nourish, repair, radiate..."}
             value={frameworkAnswers.skincareAnalysis.benefitWords}
             onChange={(e) => setFrameworkAnswers({
               ...frameworkAnswers,
@@ -310,8 +310,8 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
         </div>
         
         <div className="framework-step">
-          <h5>{isTranslated ? "步骤2：标记情感词汇" : "STEP 2: Mark the Emotional Words"}</h5>
-          <p>{isTranslated ? "哪些词汇创造情感诉求？" : "Which words create emotional appeal?"}</p>
+          <h5>{isTranslated ? "步驟2：標記情感詞彙" : "STEP 2: Mark the Emotional Words"}</h5>
+          <p>{isTranslated ? "哪些詞彙創造情感訴求？" : "Which words create emotional appeal?"}</p>
           <input
             type="text"
             placeholder={isTranslated ? "例如：天然、青春、光彩..." : "e.g., natural, youthful, glow..."}
@@ -327,8 +327,8 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
         </div>
         
         <div className="framework-step">
-          <h5>{isTranslated ? "步骤3：重建为西式英语" : "STEP 3: Rebuild into Westernized English"}</h5>
-          <p>{isTranslated ? "为美国受众创建一个简短、直接的短语：" : "Create a short, direct phrase for US audiences:"}</p>
+          <h5>{isTranslated ? "步驟3：重建為西式英語" : "STEP 3: Rebuild into Westernized English"}</h5>
+          <p>{isTranslated ? "為美國受眾創建一個簡短、直接的短語：" : "Create a short, direct phrase for US audiences:"}</p>
           <input
             type="text"
             placeholder={isTranslated ? "例如：'天然修护，焕发光彩'" : "e.g., 'Natural repair for radiant skin'"}
@@ -368,8 +368,8 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
       <div className="content-card results">
         <div className="results-header">
           <CheckCircle size={48} className="success-icon" />
-          <h2>{isTranslated ? "第2节完成！" : "Section 2 Complete!"}</h2>
-          <p>{isTranslated ? "太棒了！你已经掌握了中文标语解构框架！" : "Excellent work mastering the framework for deconstructing Mandarin taglines!"}</p>
+          <h2>{isTranslated ? "第2節完成！" : "Section 2 Complete!"}</h2>
+          <p>{isTranslated ? "太棒了！你已經掌握了中文標語解構框架！" : "Excellent work mastering the framework for deconstructing Mandarin taglines!"}</p>
         </div>
         <button className="complete-btn" onClick={handleComplete}>
           {isTranslated ? "继续第3节" : "Continue to Section 3"}
@@ -401,7 +401,7 @@ const Section2: React.FC<Section2Props> = ({ onComplete, isTranslated }) => {
           onClick={handleNext}
         >
           {currentStep === steps.length - 1 
-            ? (isTranslated ? '完成本节' : 'Complete Section') 
+            ? (isTranslated ? '完成本節' : 'Complete Section') 
             : (isTranslated ? '下一步' : 'Next Step')
           }
           <ArrowRight size={20} />
