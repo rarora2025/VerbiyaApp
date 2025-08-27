@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Target, BookOpen, ArrowRight, BarChart3, Clock, Check, Sparkles, Zap, Play, Brain } from 'lucide-react';
+import { Target, BookOpen, ArrowRight, BarChart3, Clock, Check, Sparkles, Zap, Play, Brain, Languages } from 'lucide-react';
 import logo from '../assets/logo.png';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ const LandingPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isTranslated, setIsTranslated] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -27,6 +28,17 @@ const LandingPage: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const toggleTranslation = () => {
+    setIsTranslated(!isTranslated);
+  };
 
   const features = [
     {
@@ -86,12 +98,20 @@ const LandingPage: React.FC = () => {
             </div>
             
             <div className="menu-links">
-              <a href="#features" className="menu-link">Features</a>
-              <a href="#courses" className="menu-link">Courses</a>
-              <a href="#custom" className="menu-link">Custom Course</a>
+              <button onClick={() => scrollToSection('features')} className="menu-link">Features</button>
+              <button onClick={() => scrollToSection('courses')} className="menu-link">Course</button>
+              <button onClick={() => scrollToSection('custom')} className="menu-link">Customize</button>
             </div>
             
             <div className="menu-actions">
+              <button 
+                onClick={toggleTranslation} 
+                className="menu-btn menu-btn-translate"
+                title={isTranslated ? "Switch to English" : "Switch to Traditional Chinese"}
+              >
+                <Languages size={16} />
+                <span>{isTranslated ? "English" : "中文"}</span>
+              </button>
               <button className="menu-btn menu-btn-secondary">Login</button>
               <button className="menu-btn menu-btn-primary">Get Started</button>
             </div>
@@ -107,16 +127,22 @@ const LandingPage: React.FC = () => {
             </div>
             
             <h1 className="hero-title">
-              Master Professional English
-              <span className="gradient-text"> Your Way</span>
+              {isTranslated ? "掌握專業英語" : "Master Professional English"}
+              <span className="gradient-text"> {isTranslated ? "您的方式" : "Your Way"}</span>
             </h1>
             
             <p className="hero-subtitle">
-              Create personalized courses tailored to your professional domain with cutting-edge AI technology
+              {isTranslated 
+                ? "使用尖端AI技術創建專為您的專業領域量身定制的個性化課程"
+                : "Create personalized courses tailored to your professional domain with cutting-edge AI technology"
+              }
             </p>
             
             <p className="hero-chinese">
-              专业英语学习系统 - 为您的职业发展量身定制
+              {isTranslated 
+                ? "專業英語學習系統 - 為您的職業發展量身定制"
+                : "专业英语学习系统 - 为您的职业发展量身定制"
+              }
             </p>
             
             <div className="hero-actions">
@@ -150,9 +176,9 @@ const LandingPage: React.FC = () => {
         {/* Features Section */}
         <section id="features" className={`features-section ${isVisible ? 'fade-in-delay' : ''}`}>
           <div className="section-header">
-            <h2 className="section-title">Why Choose Verbiya?</h2>
+            <h2 className="section-title">{isTranslated ? "為什麼選擇 Verbiya？" : "Why Choose Verbiya?"}</h2>
             <p className="section-subtitle">
-              Experience the future of professional English learning
+              {isTranslated ? "體驗專業英語學習的未來" : "Experience the future of professional English learning"}
             </p>
           </div>
           
@@ -178,9 +204,9 @@ const LandingPage: React.FC = () => {
         {/* Our First Available Course Section */}
         <section id="courses" className={`domain-selection-section ${isVisible ? 'fade-in-delay-2' : ''}`}>
           <div className="section-header">
-            <h2 className="section-title">Our First Available Course</h2>
+            <h2 className="section-title">{isTranslated ? "我們的第一個可用課程" : "Our First Available Course"}</h2>
             <p className="section-subtitle">
-              Start your domain proficiency journey with us, more specialized courses coming soon
+              {isTranslated ? "與我們一起開始您的領域熟練度之旅，更多專業課程即將推出" : "Start your domain proficiency journey with us, more specialized courses coming soon"}
             </p>
           </div>
 
@@ -272,12 +298,12 @@ const LandingPage: React.FC = () => {
             <div className="brain-icon">
               <Brain size={32} />
             </div>
-            <h2 className="section-title">Need a Custom Course?</h2>
+            <h2 className="section-title">{isTranslated ? "需要自定義課程？" : "Need a Custom Course?"}</h2>
             <p className="section-subtitle">
-              与智能代理系统对话,描述您的具体需求,48小时内获得个性化课程
+              {isTranslated ? "與智能代理系統對話，描述您的具體需求，48小時內獲得個性化課程" : "与智能代理系统对话,描述您的具体需求,48小时内获得个性化课程"}
             </p>
             <p className="section-subtitle-english">
-              Communicate with our agentic learning system to describe your domain-specific needs and receive a custom course within 48 hours
+              {isTranslated ? "與我們的代理學習系統溝通，描述您的領域特定需求，並在48小時內獲得自定義課程" : "Communicate with our agentic learning system to describe your domain-specific needs and receive a custom course within 48 hours"}
             </p>
           </div>
           

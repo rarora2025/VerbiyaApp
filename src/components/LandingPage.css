@@ -130,6 +130,11 @@
   font-size: 16px;
   transition: var(--transition);
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
 }
 
 .menu-link:hover {
@@ -186,6 +191,21 @@
 
 .menu-btn-primary:hover {
   background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.menu-btn-translate {
+  background: var(--accent-blue);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow);
+}
+
+.menu-btn-translate:hover {
+  background: var(--accent-blue-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
